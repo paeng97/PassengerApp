@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home | Passengers' Travel Log</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="#"><strong>Passengers'</strong> Travel Log</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav text-right ml-auto">
+                  <li class="nav-item"><a class="nav-link active" href={% url 'home' %}>Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href={% url 'about' %}>About Us</a></li>
+                  <li class="nav-item"><a class="nav-link active" href={% url 'login' %}>Login Here</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="row">
+      <div class="col">
+        <div class="col-md-12">
+            <div class="carousel slide" data-ride="carousel" >
+                <ul class="carousel-indicators">
+                  <li data-target="#demo" data-slide-to="0" class="active"></li>
+                  <li data-target="#demo" data-slide-to="1"></li>
+                  <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+                
+                <div class="carousel-inner" style="width:1300px; height: 300px;">
+                  <div class="carousel-item active">
+                    <img src="{% static 'media/la.png' %}" alt="first" width="1300" height="500">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{% static 'media/le.png' %}" alt="second" width="1300" height="500">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{% static 'media/li.png' %}" alt="third" width="1300" height="500">
+                  </div>
+                </div>
+            </div> 
+        </div><br>
+      
+        <div>
+          
+            <div class="text-center">
+              <h1 class="text-center">Get the best of travel now!</h1>
+              <p>Have a safest trip with enhanced contact tracing and stricter health standards in most convenient and secure way</p>
+              <p><a class="btn btn-primary border rounded-pill border-primary shadow" role="button" href={% url 'register' %}>Set my Profile now</a></p>
+            </div>
+          
+        </div>
+
+      </div>
+    </div>
+    <!-- Footer -->
+<footer class="page-footer font-small pink lighten-5">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Copyright: <strong>New Normal PH</strong>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+</body>
+
+</html>

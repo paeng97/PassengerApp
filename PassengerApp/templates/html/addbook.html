@@ -1,0 +1,52 @@
+{%load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Add Booking | Passengers' Travel Log</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="#"><strong>Passengers'</strong> Travel Log</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav text-right ml-auto">
+                    <li class="nav-item"><a class="nav-link"> User: {{request.user}} </a></li>
+                    <li class="nav-item"><a class="nav-link active" href={% url 'welcomeuser' %}>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href={% url 'about' %}>About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active " href={% url 'logout' %}>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div class="useraddbook">
+    <div class="jumbotron">
+    <div class="text-center illustration"><img src="{% static 'media/booking.png' %}" width="60px"></div><br>
+            <div class="text-center">
+            <h1 class="text-center">Add Bookings</h1>
+            <p class="text-center"><strong>Note:</strong> This is point-to-point travel system with limited terminals provided </p>
+            <p class="text-center">This is where you add your recent travel history for accuracy of contact tracing for your interprovincial travel</p>
+            <div class="text-center"> 
+            {% for passenger in passengers %}
+                <button type="button" class="btn btn-info" href="{% url 'passenger' passenger.id %}"></button>
+            {% endfor %}
+            </div>
+            <form action="" method="POST">
+            <div>
+            {% csrf_token %}
+            {{ form|crispy }}
+            </div><br>
+            <button type="submit" class="btn btn-primary btn-xs">Add</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

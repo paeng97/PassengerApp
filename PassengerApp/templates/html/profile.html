@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>User's Profile | Passengers' Travel Log</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="#"><strong>Passengers'</strong> Travel Log</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav text-right ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href={% url 'home' %}>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href={% url 'about' %}>About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href={% url 'addbook' %}>Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link active" href={% url 'logout' %}>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="userprofile"><br>
+        <div class="text-center illustration"><img src="{% static 'media/user.png' %}" width="60px"></div>
+        <h1 class="text-center">Passenger Profile</h1>
+        <div class="col-md">.
+            <div class="row">
+                <div class="col-md">
+                <div class="card card-body">
+                <h3 class="text-center">Personal Details</h3>
+                    <div><strong>First Name: </strong>     {{passenger.FName}}</div>
+                    <div><strong>Middle Name: </strong>   {{passenger.MName}}</div>
+                    <div><strong>Last Name: </strong>       {{passenger.LName}}</div>
+                    <div><strong>Gender: </strong>        {{passenger.Gender}}</div>
+                    <div><strong>Swab Test Result: </strong>     {{passenger.SwabTestResult}}</div>
+                    <div><strong>Date Registered: </strong>       {{passenger.DateRegistered}}</div>
+                </div>
+                </div>
+                    
+                <div class="col-md">
+                <div class="card card-body">
+                    <h3 class="text-center">Contact Details</h3>
+                            <div class="text-left">
+                                <div><strong>Present Address: </strong>   {{passenger.Address}}</div>
+                                <div><strong>Contact Number: </strong>   {{passenger.ContactNumber}}</div>
+                                <div><strong>Email: </strong>   {{passenger.Email}}</div>
+                            </div>    
+                    </div>
+                    </div>
+        </div><br    >
+        
+        <div class="booking history">
+        <div class="card card-body text-center">
+            <h3 class="text-center">Booking Details</h3>
+                    <table class="table table-hover">
+                        <tr class="text-center">
+                            <th>Date of Travel </th>
+                            <th>Pickup Terminal </th>
+                            <th>Dropoff Terminal </th>
+                            <th>Bus Plate Number </th>
+                        </tr>
+                        {% for book in booking %}
+                        <tr class="text-center">
+                            <td>{{book.TravelDate}}</td>
+                            <td>{{book.BusPlateNo}}</td>
+                            <td>{{book.PickupTerminal}}</td>
+                            <td>{{book.DropoffTerminal}}</td>
+                            <!-- <td><a role="button" class="btn btn-warning" href="{% url 'updatebooking' book.id %}">Edit Details</td> -->
+                          </tr>
+                        {% endfor %}
+                    </table>
+        </div>
+        </div>
+</body>
+
+</html>

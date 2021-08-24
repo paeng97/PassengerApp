@@ -1,0 +1,54 @@
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Passenger Registration | Passengers' Travel Log</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="#"><strong>Passengers'</strong> Travel Log</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav text-right ml-auto">
+                    <li class="nav-item"><a class="nav-link"> User: {{request.user}} </a></li>
+                    <li class="nav-item"><a class="nav-link active" href={% url 'welcomeuser' %}>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href={% url 'about' %}>About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href={% url 'addbook' %}>Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link active" href={% url 'logout' %}>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron">
+    <div id="registration"> 
+        <div class="text-center illustration"><img src="{% static 'media/registration.png' %}" width="60px"></div>
+            <div class="col-md text-center">
+            <section class="login-clean"><br>
+                <form action="" method="POST">
+                    <h1 class="text-center">Passenger Profile Setup</h1><label id="loginDetails"></label>
+                    <div class="card card-body">
+                    {% csrf_token %}
+                    {{ form| crispy }}<br>
+                    <button type="submit" class="btn btn-primary btn-xs">Submit</button>
+                    </div>
+                </form>
+            </section>
+            </div>
+        </div>
+    </div>
+   
+    <footer>
+    <div class="footer-copyright text-center py-3">© 2021 Copyright: <strong>New Normal PH</strong>
+    </div>
+    </footer>
+</body>
+
+</html>

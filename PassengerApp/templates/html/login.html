@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login | Passengers' Travel Log</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="#"><strong>Passengers'</strong> Travel Log</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        </div>
+    </nav>
+
+    <div id="logIn">
+        <div class="container">
+            
+            <div class="text-center loginlogo"><img src="{% static 'media/login.png' %}" width="60px" alt="login"></div>
+            
+            <h1 class="text-center">Login</h1>
+            <p class="text-center">Fill up with your username and password</p><br>
+            <section class="login-clean">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+
+                        <input type="text" name="username" placeholder="Username..." class="form-control">
+                    </div>
+
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+
+                            <input type="password" name="password" placeholder="Password..." class="form-control" >
+                    </div>
+
+                        <div class="d-flex justify-content-center mt-3 login_container">
+                            <input class="btn btn-primary" type="submit" value="Login">
+                        </div>
+                </form>
+
+            </div>            
+    
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+                </div>
+        </section>
+        </div>
+    </div>
+</body>
+
+</html>

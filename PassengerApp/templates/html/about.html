@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Who We Are | Passengers' Travel Log</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand"><strong>Passengers'</strong> Travel Log</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav text-right ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href={% url 'welcomeuser' %}>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href={% url 'about' %}>About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href={% url 'addbook' %}>Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link active" href={% url 'logout' %}>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div id="registration"> 
+        <div class="text-center illustration"><img src="{% static 'media/connections.png' %}" width="60px"></div><br>
+        <div></div>
+        <h1 class="text-center">Who We Are</h1>
+        <p class="text-center">The rising number of COVID-19 cases needs long-term solutions and actions. <br>
+            As a leap to new normal of traveling, we are guided by IATF restrictions,<br>LTO, DOT and joint forces between provinces and municipals. <br></p>
+        <h1 class="text-center">What We Do</h1>
+        <p class="text-center">We aim to secure passengers to their corporate jobs, essential travels<br>and their way back home with the best health security which every passengers deserves.</p>
+    </div>
+    <br>
+    <!-- Footer -->
+        <footer class="page-footer font-small pink lighten-5">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2021 Copyright: <strong>New Normal PH</strong>
+        </div>
+        <!-- Copyright -->
+          
+        </footer>
+        <!-- Footer -->
+</body>
+
+</html>

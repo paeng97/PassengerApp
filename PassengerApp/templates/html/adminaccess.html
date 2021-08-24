@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Admin Overview | Passengers' Travel Log</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="#"><strong>Passengers'</strong> Travel Log</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav text-right ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href={% url 'logout' %}>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="userprofile">
+        <div class="text-center illustration"><img src="{% static 'media/adminaccess.png' %}" width="60px"></div>
+            <h1 class="text-center">Admin Overview</h1><br>
+            <div class="row">
+                <div class="col">
+                    <div class="col-md">
+                        <div class="card text-center text-black mb-3">
+                            <h4 class="card-title"><br>
+                                <strong>Registered Users:</strong>
+                            </h4> 
+                            <h2 class="card-body">
+                                {{totreg}}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="col-md">
+                        <div class="card text-center text-black mb-3">
+                            <h4 class="card-title"><br>
+                                <strong>Added Bookings:</strong>
+                            </h4> 
+                            <h2 class="card-body">
+                                {{totbook}}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="col-md">
+                    <div class="card card-body">
+                        <h5 class="text-center"><strong>DESTINATION TRACING</strong></h5><br>
+                        <form method="get">
+                            <center>
+                                {{BookFilter.form}} 
+                            <button class="btn btn-primary" type="submit">
+                                Search
+                            </button>
+                            <i class="fa fa-search"></i>
+                            </center> 
+                            </form><br>
+                    <table class="table table-hover">
+                        <tr class="text-center">
+                            <th>Date of Travel</th>
+                            <th>Bus Plate No.</th>
+                            <th>Pickup Point</th>
+                            <th>Dropoff Point</th>
+                            <th>First Name</th>
+                        </tr>
+
+                        {% for book in bookings %}
+                        <tr class="text-center">
+                            <td>{{book.TravelDate}}</td>
+                            <td>{{book.BusPlateNo}}</td>
+                            <td>{{book.PickupTerminal}}</td>
+                            <td>{{book.DropoffTerminal}}</td>
+                            <td>{{register.user}}</td>
+                        </tr>
+                        {% endfor %}
+                        </table>
+                    </div>
+                    </div>
+            </div><br>
+            <div>
+                    <div class="col-md">
+                    <div class="card card-body">
+                        <h5 class="text-center"><strong>PASSENGER TRACING</strong></h5><br>
+                            <form method="get">
+                                <center> {{PassFilter.form}} 
+                                <button class="btn btn-primary" type="submit">Search</button><i class="fa fa-search"></i>
+                                </center> 
+                            </form><br>
+                    <table class="table table-hover">
+                        <tr class="text-center">
+                            <th>First Name</th>
+                            <th>Middle Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Date Registered</th>
+                            <th>Swab Test Result</th>
+                            <th>Email</th>
+                            <th>ContactNumber</th>
+                            <th>Present Address</th>
+                        </tr>
+                        {% for passenger in passengers %}
+                        <tr class="text-center">
+                            <td>{{passenger.FName}}</td>
+                            <td>{{passenger.MName}}</td>
+                            <td>{{passenger.LName}}</td>
+                            <td>{{passenger.Gender}}</td>
+                            <td>{{passenger.DateRegistered}}</td>
+                            <td>{{passenger.SwabTestResult}}</td>
+                            <td>{{passenger.Email}}</td>
+                            <td>{{passenger.ContactNumber}}</td>
+                            <td>{{passenger.Address}}</td>
+                        </tr>
+                        {% endfor %}button class
+                        </table>
+                    </div>
+                    </div>
+            </div>
+
+            </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
